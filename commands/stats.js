@@ -48,16 +48,17 @@ module.exports = {
                 const incorrect = tag.get("wrongNumbers")
                 const accuracy = (correct / (correct + incorrect) * 100).toFixed(3)
                 const embed = new MessageEmbed()
-                    .setTitle(`Server Stats`)
+                    .setTitle(`User Stats`)
                     .setColor("#0099ff")
-                    .setDescription(`<@${usr.id}> has counted **${correct}** numbers with **${incorrect}** wrong numbers (${accuracy}% accuracy)`)
+                    //.setDescription(`<@${usr.id}> has counted **${correct}** numbers with **${incorrect}** wrong numbers (${accuracy}% accuracy)`)
+                    .setDescription(`Stats for <@${usr.id}>\n\nCorrect numbers: **${correct}**\nWrong numbers: **${incorrect}**\nAccuracy: **${accuracy}%**\nSaves: /5`)
                     .setTimestamp()
                 return interaction.reply({embeds: [embed]});
             } else {
                 const embed = new MessageEmbed()
                     .setTitle(`User Stats`)
                     .setColor("#0099ff")
-                    .setDescription(`<@${usr.id}> has not counted any numbers`)
+                    .setDescription(`Stats for <@${usr.id}>\n\n**No stats found**`)
                     .setTimestamp()
                 return interaction.reply({embeds: [embed]});
             }
